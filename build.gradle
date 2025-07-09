@@ -1,7 +1,7 @@
 plugins {
     id 'idea'
     id 'java-library'
-    id 'net.neoforged.moddev' version '2.0.82'
+    id 'net.neoforged.moddev' version '2.0.99'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -97,6 +97,9 @@ neoForge {
         "${mod_id}" {
             sourceSet(sourceSets.main)
         }
+        "sheepish-asm" {
+            sourceSet(project(":sheepish-asm").sourceSets.main)
+        }
     }
 }
 
@@ -139,6 +142,8 @@ dependencies {
 
     compileOnly 'com.esotericsoftware.yamlbeans:yamlbeans:1.15'
     compileOnly 'com.github.luben:zstd-jni:1.5.7-3'
+
+    jarJar project(":sheepish-asm")
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
