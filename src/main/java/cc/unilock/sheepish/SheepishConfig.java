@@ -36,4 +36,12 @@ public class SheepishConfig extends ReflectiveConfig {
 
 	@Comment("Prevent all entities from trampling farmland")
 	public final TrackedValue<Boolean> noTrample = value(false);
+
+	@Comment({
+			"Allow obtaining the Hex Sigil, Garnet, and Onyx from Omni Utils",
+			"- Hex Sigil: drops from entities in #c:bosses",
+			"- Garnet: 30% chance drop from blocks in #c:redstone_ores",
+			"- Onyx: 15% chance drop from blocks in #c:coal_ores"
+	})
+	public final TrackedValue<Boolean> omniUtils = value(false);
 }

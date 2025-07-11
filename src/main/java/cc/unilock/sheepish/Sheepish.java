@@ -3,6 +3,7 @@ package cc.unilock.sheepish;
 import cc.unilock.sheepish.compat.AlmostUnifiedCompat;
 import cc.unilock.sheepish.compat.AnsharCompat;
 import cc.unilock.sheepish.compat.ExcessiveBuildingCompat;
+import cc.unilock.sheepish.compat.OmniUtilsCompat;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.RegistryAccess;
@@ -28,6 +29,7 @@ public class Sheepish {
     protected static final boolean CERULEAN = LoadingModList.get().getModFileById("cerulean") != null;
     protected static final boolean EMOJIFUL = LoadingModList.get().getModFileById("emojiful") != null;
     protected static final boolean EXCESSIVE_BUILDING = LoadingModList.get().getModFileById("excessive_building") != null;
+    protected static final boolean OMNI_UTIL = LoadingModList.get().getModFileById("omni_util") != null;
 
     public Sheepish() {
         NeoForge.EVENT_BUS.addListener(EventPriority.LOWEST, BlockEvent.FarmlandTrampleEvent.class, event -> {
@@ -43,8 +45,11 @@ public class Sheepish {
         if (EXCESSIVE_BUILDING) {
             ExcessiveBuildingCompat.init();
         }
+        if (OMNI_UTIL) {
+            OmniUtilsCompat.init();
+        }
     }
-    
+
     public static RegistryAccess getRegistryAccess() {
         if (ServerLifecycleHooks.getCurrentServer() == null) {
             if (FMLLoader.getDist().isClient() && Minecraft.getInstance().level != null) {

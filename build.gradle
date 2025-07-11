@@ -35,6 +35,10 @@ repositories {
         url = 'https://maven.su5ed.dev/releases/'
     }
     maven {
+        name = 'DevOS'
+        url = 'https://mvn.devos.one/snapshots/'
+    }
+    maven {
         name = 'Sleeping Town'
         url = 'https://repo.sleeping.town/'
     }
@@ -131,6 +135,7 @@ dependencies {
     compileOnly 'maven.modrinth:hexerei:0.5.0.3'
     compileOnly 'curse.maven:minestuck-224635:6421096'
     compileOnly 'maven.modrinth:modern-industrialization:2.3.9'
+    compileOnly 'curse.maven:omni-utils-1206030:6425785'
     compileOnly 'maven.modrinth:owo-lib:0.12.15.1-beta.6+1.21'
     compileOnly 'maven.modrinth:rapscallions-and-rockhoppers:2.0.6+1.21.1-neoforge'
 
@@ -143,6 +148,7 @@ dependencies {
     // Compile-time dependencies
     compileOnly 'com.esotericsoftware.yamlbeans:yamlbeans:1.15'
     compileOnly 'com.github.luben:zstd-jni:1.5.7-3'
+    compileOnly 'com.tterrag.registrate:Registrate:MC1.21-1.3.0+66'
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
